@@ -20,5 +20,6 @@ Se dio de alta un superusuario en admin:
     Usuario: Biblioteca
     Pass: Entrega1
 Se incorporó en el archivo admin.py, los modelos correspondientes, y se verificó el correcto funcionamiento de la Base de datos, viendo desde el panel /admin.
+Se incorporó un botón desde padre.html para poder buscar, usando un formulario, el ID de Usuarios creados.
 
 

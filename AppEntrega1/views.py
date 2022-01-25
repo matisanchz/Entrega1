@@ -137,3 +137,12 @@ class UsuarioDeleteView(DeleteView):
     success_url = reverse_lazy('usuarios')
     #Por default usa el template libro_confirm_delete.html
 
+def busqueda_usuario(request):
+    return render(request, 'AppEntrega1/busquedaUsuario.html')
+
+def buscar(request):
+    id_socio = request.GET["id_socio"]
+    
+    usuarios = Usuario.objects.filter(id_socio = id_socio)
+    
+    return render(request, 'AppEntrega1/buscar.html', {'usuarios': usuarios, 'id_socio': id_socio})
