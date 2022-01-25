@@ -8,5 +8,14 @@
 
     <h3> Las sucursales son: </h3>
 
+    {% for sucursal in sucursales%}
+    <a href="{% url 'sucursal_view' sucursal.id %}">{{ sucursal }}</a>
+    <a href="{% url 'sucursal_delete' sucursal.id %}">Borrar</a>
+    <a href="{% url 'sucursal_update' sucursal.id %}">Editar</a>
+        <br>
+    {% endfor %}
+
+<a class="btn btn-primary" href="{% url 'sucursal_add' %}"> Agregar </a>
+
 
 {% endblock %}

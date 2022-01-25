@@ -16,6 +16,9 @@ def inicio(request):
 def sucursal(request):
     return render(request, 'AppEntrega1/sucursal.html', {'sucursales': Sucursal.objects.all()})
 
+def sucursalesFormulario(request):
+    return render(request, 'AppEntrega1/sucursalesFormulario.html')
+
 def seccion(request):
     return HttpResponse('seccion')
 
@@ -30,10 +33,24 @@ def usuario(request):
 class SucursalListView(ListView):
     model = Sucursal
     template_name = 'AppEntrega1/sucursal.html'
-    context_object_name = 'sucursal'
+    context_object_name = 'sucursales'
+
+class SucursalDetailView(DetailView):
+    model = Sucursal
+    template_name = 'AppEntrega1/ver_sucursal.html'
+
+class SucursalCreateView(CreateView):
+    model = Sucursal
+    success_url = reverse_lazy('sucursales')
+    fields = ['nombre', 'direccion', 'localidad']
+    template_name = 'AppEntrega1/sucursales_form.html'
     
-# class SucursalCreateView(CreateView):
-#     model = Sucursal
-#     success_url = reverse_lazy('seccion')
-#     fields = ['nombre', 'direccion', 'localidad']
-#     # template_name = 'AppEntrega1/profesor_form.html'
+class SucursalUpdateView(UpdateView):
+    model = Sucursal
+    success_url = reverse_lazy('sucursales')
+    fields = ['nombre', 'direccion', 'localidad']
+    template_name = 'AppEntrega1/sucursales_form.html'
+
+class SucursalDeleteView(DeleteView):
+    model = Sucursal
+    success_url = reverse_lazy('sucursales')

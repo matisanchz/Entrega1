@@ -3,8 +3,8 @@ from django.db import models
 class Sucursal(models.Model):
     
     nombre = models.CharField(max_length=50, verbose_name='Nombre del local')
-    direccion = models.CharField(max_length=50)
     localidad = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=50)
     
     def __str__(self):
         return f'Sucursal {self.nombre}, ubicada en ({self.localidad})'
