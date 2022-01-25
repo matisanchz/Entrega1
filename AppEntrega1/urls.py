@@ -1,6 +1,6 @@
 from django.urls import path
 
-from AppEntrega1.views import inicio, busqueda_usuario, buscar, SucursalListView, SucursalCreateView, SucursalDetailView, SucursalUpdateView, SucursalDeleteView, SeccionListView, SeccionCreateView, SeccionDetailView, SeccionUpdateView, SeccionDeleteView, LibroListView, LibroDetailView, LibroCreateView, LibroUpdateView, LibroDeleteView, UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
+from AppEntrega1.views import inicio, busqueda_usuario, buscar, ayuda, contacto, SucursalListView, SucursalCreateView, SucursalDetailView, SucursalUpdateView, SucursalDeleteView, SeccionListView, SeccionCreateView, SeccionDetailView, SeccionUpdateView, SeccionDeleteView, LibroListView, LibroDetailView, LibroCreateView, LibroUpdateView, LibroDeleteView, UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
 
 urlpatterns = [
     path('', inicio, name= 'inicio'),
@@ -25,5 +25,7 @@ urlpatterns = [
     path('usuarios/update/<pk>', UsuarioUpdateView.as_view(), name = 'usuario_update'),
     path('usuarios/delete/<pk>', UsuarioDeleteView.as_view(), name = 'usuario_delete'),
     path('busquedaUsuario', busqueda_usuario, name = 'busqueda_usuario'),
-    path('buscar', buscar, name = 'buscar')
+    path('buscar', buscar, name = 'buscar'),
+    path('ayuda', ayuda, name = 'ayuda'),
+    path('contacto', contacto, name = 'contacto'),
 ]

@@ -146,3 +146,9 @@ def buscar(request):
     usuarios = Usuario.objects.filter(id_socio = id_socio)
     
     return render(request, 'AppEntrega1/buscar.html', {'usuarios': usuarios, 'id_socio': id_socio})
+
+def ayuda(request):
+    return HttpResponse('Actualmente este servicio no está disponible; comunicarse con el desarrollador del servicio')
+
+def contacto(request):
+    return HttpResponse('Para contactos, enviar mail a contactoalfa@gmail.com')
