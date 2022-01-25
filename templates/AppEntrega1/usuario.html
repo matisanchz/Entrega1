@@ -1,0 +1,20 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block titulo %}
+    Usuarios/Socios
+{% endblock %}
+
+{% block contenidoQueCambia %}
+
+    <h3> Los usuarios inscriptos son: </h3>
+
+    {% for usuario in usuarios%}
+    <a href="{% url 'usuario_view' usuario.id %}">{{ usuario }}</a>
+    <a href="{% url 'usuario_delete' usuario.id %}">Borrar</a>
+    <a href="{% url 'usuario_update' usuario.id %}">Editar</a>
+        <br>
+    {% endfor %}
+
+<a class="btn btn-primary" href="{% url 'usuario_add' %}"> Agregar </a>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <ul>
+            <li> Nombre: {{seccion.nombre}}</li>
+            <li> Piso: {{seccion.piso}}</li>
+        </ul>
+        
+        <input type="submit" value="Borrar">
+    </form>
+
+{% endblock %}

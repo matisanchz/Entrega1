@@ -1,0 +1,16 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+    <ul>
+        <li> Título: {{libro.titulo}}</li>
+        <li> Autor: {{libro.autor}}</li>
+        <li> Fecha de publicación: {{libro.fecha_publicacion}}</li>
+        <li> Editorial: {{libro.editorial}}</li>
+        <li> Disponibilidad: {{libro.disponibilidad}}</li>
+        <li> Sitio oficial: {{libro.sitio_oficial}}</li>
+    </ul>
+
+    <a class="btn btn-primary" href="{% url 'libros' %}"> Volver </a>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block titulo %}
+    Secciones
+{% endblock %}
+
+{% block contenidoQueCambia %}
+
+    <h3> Las secciones de la Biblioteca son: </h3>
+
+    {% for seccion in secciones%}
+    <a href="{% url 'seccion_view' seccion.id %}">{{ seccion }}</a>
+    <a href="{% url 'seccion_delete' seccion.id %}">Borrar</a>
+    <a href="{% url 'seccion_update' seccion.id %}">Editar</a>
+        <br>
+    {% endfor %}
+
+<a class="btn btn-primary" href="{% url 'seccion_add' %}"> Agregar </a>
+
+
+{% endblock %}

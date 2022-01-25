@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.core.validators import RegexValidator
+
 class Sucursal(models.Model):
     
     nombre = models.CharField(max_length=50, verbose_name='Nombre del local')
@@ -19,7 +21,7 @@ class Seccion(models.Model):
 class Libro(models.Model):
     titulo = models.CharField(max_length=30, verbose_name='Título completo del libro')
     autor = models.CharField(max_length=50)
-    fecha_publicación = models.DateField()
+    fecha_publicacion = models.DateField()
     editorial = models.TextField()
     disponibilidad = models.BooleanField()
     sitio_oficial = models.URLField()
@@ -35,12 +37,3 @@ class Usuario(models.Model):
     
     def __str__(self):
         return f'{self.nombre} {self.apellido} ({self.email}) - Socio {self.id_socio}'
-
-class Empleado(models.Model):
-
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    cargo = models.CharField(max_length=30)
-    
-    def __str__(self):
-        return f'{self.nombre} {self.apellido} - Empleado a cargo de ({self.cargo})'

@@ -1,0 +1,20 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <ul>
+            <li> Título: {{libro.titulo}}</li>
+            <li> Autor: {{libro.autor}}</li>
+            <li> Fecha de publicación: {{libro.fecha_publicacion}}</li>
+            <li> Editorial: {{libro.editorial}}</li>
+            <li> Disponibilidad: {{libro.disponibilidad}}</li>
+            <li> Sitio oficial: {{libro.sitio_oficial}}</li>
+        </ul>
+        
+        <input type="submit" value="Borrar">
+    </form>
+
+{% endblock %}

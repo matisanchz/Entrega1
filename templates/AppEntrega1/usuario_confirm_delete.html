@@ -1,0 +1,18 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <ul>
+            <li> Nombre: {{usuario.nombre}}</li>
+            <li> Apellido: {{usuario.apellido}}</li>
+            <li> ID Socio: {{usuario.id_socio}}</li>
+            <li> Email: {{usuario.email}}</li>
+        </ul>
+        
+        <input type="submit" value="Borrar">
+    </form>
+
+{% endblock %}

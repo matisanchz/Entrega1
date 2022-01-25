@@ -1,0 +1,21 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block titulo %}
+    Libros
+{% endblock %}
+
+{% block contenidoQueCambia %}
+
+    <h3> Los libros disponibles son: </h3>
+
+    {% for libro in libros%}
+    <a href="{% url 'libro_view' libro.id %}">{{ libro }}</a>
+    <a href="{% url 'libro_delete' libro.id %}">Borrar</a>
+    <a href="{% url 'libro_update' libro.id %}">Editar</a>
+        <br>
+    {% endfor %}
+
+<a class="btn btn-primary" href="{% url 'libro_add' %}"> Agregar </a>
+
+
+{% endblock %}

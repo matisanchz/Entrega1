@@ -1,0 +1,12 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+    <ul>
+        <li> Nombre: {{seccion.nombre}}</li>
+        <li> Piso: {{seccion.piso}}</li>
+    </ul>
+
+    <a class="btn btn-primary" href="{% url 'libros' %}"> Volver </a>
+
+{% endblock %}
