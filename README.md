@@ -12,6 +12,7 @@ Creó los modelos, desde models.py, e importó la base de datos con python manag
 
 Matías Sánchez Abrego:
 Importó la carpeta static, usando de ejemplo lo visto en la clase.
+
 Se importó la carpeta padre.html, usada en clase.
 Creamos el archivo views.py, usando clases para crear formularios en cada modelo. 
 Separamos las URLS del proyecto, de las URLS de la AppEntrega1.
