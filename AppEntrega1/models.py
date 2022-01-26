@@ -22,12 +22,12 @@ class Libro(models.Model):
     titulo = models.CharField(max_length=30, verbose_name='Título completo del libro')
     autor = models.CharField(max_length=50)
     fecha_publicacion = models.DateField()
-    editorial = models.TextField()
+    editorial = models.TextField(max_length=15)
     disponibilidad = models.BooleanField()
     sitio_oficial = models.URLField()
     
     def __str__(self):
-        return f'Nombre del libro: {self.titulo}, escrito por {self.autor} el {self.fecha_publicación}'
+        return f'Nombre del libro: {self.titulo}, escrito por {self.autor} el {self.fecha_publicacion}'
 
 class Usuario(models.Model):
     nombre = models.CharField(max_length=30)
