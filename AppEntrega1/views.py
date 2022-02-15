@@ -10,6 +10,10 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from django.urls import reverse_lazy
 
+from django.core.mail import send_mail
+
+from django.conf import settings
+
 def inicio(request):
     return render(request, 'AppEntrega1/inicio.html')
 
@@ -151,4 +155,19 @@ def ayuda(request):
     return HttpResponse('Actualmente este servicio no está disponible; comunicarse con el desarrollador del servicio')
 
 def contacto(request):
-    return HttpResponse('Para contactos, enviar mail a contactoalfa@gmail.com')
+    return HttpResponse('Para contactos, enviar mail a contactoalfaproject@gmail.com')
+
+def enviar_email(request):
+    
+    if request.method=="POST":
+        subject=request.POST['asunto']
+        message=request.POST['mensaje']+ " | Remitente "+ request.POST['correo']
+        email_from= settings.EMAIL_HOST_USER
+        recipent_list=["contactoalfaproject@gmail.com"]
+        send_mail(subject, message, email_from, recipent_list)
+        return redirect('mensajeria/enviado')
+    
+    return render(request, "AppEntrega1/mensajeria.html")
+
+def email_enviado(request):
+    return render(request, "AppEntrega1/email_enviado.html")
