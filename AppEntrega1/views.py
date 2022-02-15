@@ -10,6 +10,10 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from django.urls import reverse_lazy
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.auth.decorators import login_required
+
 from django.core.mail import send_mail
 
 from django.conf import settings
@@ -26,6 +30,7 @@ def seccion(request):
 def libro(request):
     return render(request, 'AppEntrega1/libro.html', {'libros': Libro.objects.all()})
 
+@login_required
 def usuario(request):
     return render(request, 'AppEntrega1/usuario.html', {'usuarios': Usuario.objects.all()})
 
@@ -39,19 +44,19 @@ class SucursalDetailView(DetailView):
     model = Sucursal
     template_name = 'AppEntrega1/ver_sucursal.html'
 
-class SucursalCreateView(CreateView):
+class SucursalCreateView(LoginRequiredMixin, CreateView):
     model = Sucursal
     success_url = reverse_lazy('sucursales')
     fields = ['nombre', 'direccion', 'localidad']
     template_name = 'AppEntrega1/sucursales_form.html'
     
-class SucursalUpdateView(UpdateView):
+class SucursalUpdateView(LoginRequiredMixin, UpdateView):
     model = Sucursal
     success_url = reverse_lazy('sucursales')
     fields = ['nombre', 'direccion', 'localidad']
     template_name = 'AppEntrega1/sucursales_form.html'
 
-class SucursalDeleteView(DeleteView):
+class SucursalDeleteView(LoginRequiredMixin, DeleteView):
     model = Sucursal
     success_url = reverse_lazy('sucursales')
 
@@ -65,18 +70,18 @@ class SeccionDetailView(DetailView):
     model = Seccion
     template_name = 'AppEntrega1/ver_seccion.html'
 
-class SeccionCreateView(CreateView):
+class SeccionCreateView(LoginRequiredMixin, CreateView):
     model = Seccion
     success_url = reverse_lazy('secciones')
     fields = ['nombre', 'piso']
     template_name = 'AppEntrega1/secciones_form.html'
-class SeccionUpdateView(UpdateView):
+class SeccionUpdateView(LoginRequiredMixin, UpdateView):
     model = Seccion
     success_url = reverse_lazy('secciones')
     fields = ['nombre', 'piso']
     template_name = 'AppEntrega1/secciones_form.html'
 
-class SeccionDeleteView(DeleteView):
+class SeccionDeleteView(LoginRequiredMixin, DeleteView):
     model = Seccion
     success_url = reverse_lazy('secciones')
     #Por default usa el template seccion_confirm_delete.html
@@ -91,46 +96,46 @@ class LibroDetailView(DetailView):
     model = Libro
     template_name = 'AppEntrega1/ver_libro.html'
 
-class LibroCreateView(CreateView):
+class LibroCreateView(LoginRequiredMixin, CreateView):
     model = Libro
     success_url = reverse_lazy('libros')
     fields = ['titulo', 'autor', 'fecha_publicacion', 'editorial', 'disponibilidad', 'sitio_oficial']
     template_name = 'AppEntrega1/libros_form.html'
     
-class LibroUpdateView(UpdateView):
+class LibroUpdateView(LoginRequiredMixin, UpdateView):
     model = Libro
     success_url = reverse_lazy('libros')
     fields = ['titulo', 'autor', 'fecha_publicacion', 'editorial', 'disponibilidad', 'sitio_oficial']
     template_name = 'AppEntrega1/libros_form.html'
     
-class LibroDeleteView(DeleteView):
+class LibroDeleteView(LoginRequiredMixin, DeleteView):
     model = Libro
     success_url = reverse_lazy('libros')
     #Por default usa el template libro_confirm_delete.html
 
 # Forms Usuario:
-class UsuarioListView(ListView):
+class UsuarioListView(LoginRequiredMixin, ListView):
     model = Usuario
     template_name = 'AppEntrega1/usuario.html'
     context_object_name = 'usuarios'
 
-class UsuarioDetailView(DetailView):
+class UsuarioDetailView(LoginRequiredMixin, DetailView):
     model = Usuario
     template_name = 'AppEntrega1/ver_usuario.html'
 
-class UsuarioCreateView(CreateView):
+class UsuarioCreateView(LoginRequiredMixin, CreateView):
     model = Usuario
     success_url = reverse_lazy('usuarios')
     fields = ['nombre', 'apellido', 'id_socio', 'email']
     template_name = 'AppEntrega1/usuarios_form.html'
     
-class UsuarioUpdateView(UpdateView):
+class UsuarioUpdateView(LoginRequiredMixin, UpdateView):
     model = Usuario
     success_url = reverse_lazy('usuarios')
     fields = ['nombre', 'apellido', 'id_socio', 'email']
     template_name = 'AppEntrega1/usuarios_form.html'
     
-class UsuarioDeleteView(DeleteView):
+class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
     model = Usuario
     success_url = reverse_lazy('usuarios')
     #Por default usa el template libro_confirm_delete.html
@@ -165,3 +170,4 @@ def enviar_email(request):
 
 def email_enviado(request):
     return render(request, "AppEntrega1/email_enviado.html")
+
