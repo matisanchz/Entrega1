@@ -2,6 +2,8 @@
 
 {% block contenidoQueCambia %}
 
+
+
     <form action="" method="POST">
         {% csrf_token %}
         
@@ -11,6 +13,13 @@
         </ul>
         
         <input type="submit" value="Borrar">
+        <a class="btn btn-default" href="{% url 'secciones' %}"> Cancelar </a>
     </form>
+
+{% endblock %}
+
+{% block titulo %}
+
+Borrar - Sección
 
 {% endblock %}

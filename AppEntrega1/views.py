@@ -69,14 +69,12 @@ class SeccionCreateView(CreateView):
     model = Seccion
     success_url = reverse_lazy('secciones')
     fields = ['nombre', 'piso']
-    template_name = 'AppEntrega1/sucursales_form.html'
-    #Puedo usar el mismo template que SucursalesCreateView
+    template_name = 'AppEntrega1/secciones_form.html'
 class SeccionUpdateView(UpdateView):
     model = Seccion
     success_url = reverse_lazy('secciones')
     fields = ['nombre', 'piso']
-    template_name = 'AppEntrega1/sucursales_form.html'
-    #Puedo usar el mismo template que SucursalesCreateView
+    template_name = 'AppEntrega1/secciones_form.html'
 
 class SeccionDeleteView(DeleteView):
     model = Seccion
@@ -97,15 +95,13 @@ class LibroCreateView(CreateView):
     model = Libro
     success_url = reverse_lazy('libros')
     fields = ['titulo', 'autor', 'fecha_publicacion', 'editorial', 'disponibilidad', 'sitio_oficial']
-    template_name = 'AppEntrega1/sucursales_form.html'
-    #Puedo usar el mismo template que SucursalesCreateView
+    template_name = 'AppEntrega1/libros_form.html'
     
 class LibroUpdateView(UpdateView):
     model = Libro
     success_url = reverse_lazy('libros')
     fields = ['titulo', 'autor', 'fecha_publicacion', 'editorial', 'disponibilidad', 'sitio_oficial']
-    template_name = 'AppEntrega1/sucursales_form.html'
-    #Puedo usar el mismo template que SucursalesCreateView
+    template_name = 'AppEntrega1/libros_form.html'
     
 class LibroDeleteView(DeleteView):
     model = Libro
@@ -126,15 +122,13 @@ class UsuarioCreateView(CreateView):
     model = Usuario
     success_url = reverse_lazy('usuarios')
     fields = ['nombre', 'apellido', 'id_socio', 'email']
-    template_name = 'AppEntrega1/sucursales_form.html'
-    #Puedo usar el mismo template que SucursalesCreateView
+    template_name = 'AppEntrega1/usuarios_form.html'
     
 class UsuarioUpdateView(UpdateView):
     model = Usuario
     success_url = reverse_lazy('usuarios')
     fields = ['nombre', 'apellido', 'id_socio', 'email']
-    template_name = 'AppEntrega1/sucursales_form.html'
-    #Puedo usar el mismo template que SucursalesCreateView
+    template_name = 'AppEntrega1/usuarios_form.html'
     
 class UsuarioDeleteView(DeleteView):
     model = Usuario
