@@ -4,12 +4,13 @@
     Sucursales
 {% endblock %}
 
-{% block contenidoQueCambia %}
+{% block respectivo1 %}
 
     <h3> Las sucursales son: </h3>
 
     {% for sucursal in sucursales%}
-    <a href="{% url 'sucursal_view' sucursal.id %}">{{ sucursal }}</a>
+    {{ sucursal }}
+    <a href="{% url 'sucursal_view' sucursal.id %}">Ver</a>
     <a href="{% url 'sucursal_delete' sucursal.id %}">Borrar</a>
     <a href="{% url 'sucursal_update' sucursal.id %}">Editar</a>
         <br>

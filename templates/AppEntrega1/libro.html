@@ -4,12 +4,13 @@
     Libros
 {% endblock %}
 
-{% block contenidoQueCambia %}
+{% block respectivo1%}
 
     <h3> Los libros disponibles son: </h3>
 
     {% for libro in libros%}
-    <a href="{% url 'libro_view' libro.id %}">{{ libro }}</a>
+    {{ libro }}
+    <a href="{% url 'libro_view' libro.id %}">Ver</a>
     <a href="{% url 'libro_delete' libro.id %}">Borrar</a>
     <a href="{% url 'libro_update' libro.id %}">Editar</a>
         <br>

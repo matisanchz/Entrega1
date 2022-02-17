@@ -4,12 +4,13 @@
     Secciones
 {% endblock %}
 
-{% block contenidoQueCambia %}
+{% block respectivo1 %}
 
     <h3> Las secciones de la Biblioteca son: </h3>
 
     {% for seccion in secciones%}
-    <a href="{% url 'seccion_view' seccion.id %}">{{ seccion }}</a>
+    {{ seccion }}
+    <a href="{% url 'seccion_view' seccion.id %}">Ver</a>
     <a href="{% url 'seccion_delete' seccion.id %}">Borrar</a>
     <a href="{% url 'seccion_update' seccion.id %}">Editar</a>
         <br>

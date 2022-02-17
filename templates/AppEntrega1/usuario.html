@@ -4,12 +4,13 @@
     Usuarios/Socios
 {% endblock %}
 
-{% block contenidoQueCambia %}
+{% block respectivo1 %}
 
     <h3> Los usuarios inscriptos son: </h3>
 
     {% for usuario in usuarios%}
-    <a href="{% url 'usuario_view' usuario.id %}">{{ usuario }}</a>
+    {{ usuario }}
+    <a href="{% url 'usuario_view' usuario.id %}">Ver</a>
     <a href="{% url 'usuario_delete' usuario.id %}">Borrar</a>
     <a href="{% url 'usuario_update' usuario.id %}">Editar</a>
         <br>
