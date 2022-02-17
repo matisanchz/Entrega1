@@ -39,8 +39,16 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'libros' %}">Libros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'usuarios' %}">Usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'mensajeria' %}">Mensajería</a></li>
+
+                        {% if not user.is_authenticated %}
+                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
+                        {% else %}
+                            <p class= "text-muted small mb-4 mb-lg-0"> Bienvenido: {{user.username}} </p>
+                            <img src = "{{avatar_url}}" height="35px"/>
+                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
+                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'user_editar' %}">Editar Usuario</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="btn btn-primary" href="{% url 'busqueda_usuario' %}">Buscar ID Usuario</a></li>
-                        <li class="nav-item"><a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
                     </ul>
                 </div>
             </div>

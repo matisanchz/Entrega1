@@ -4,7 +4,9 @@ from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 
-from .models import Sucursal, Seccion, Libro, Usuario
+from AppEntrega1.forms import AvatarFormulario
+
+from .models import Avatar, Sucursal, Seccion, Libro, Usuario
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -19,7 +21,14 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 def inicio(request):
-    return render(request, 'AppEntrega1/inicio.html')
+    if request.user.is_authenticated:
+        avatares = Avatar.objects.filter(user=request.user)
+        if avatares:
+            avatar_url = avatares.last().imagen.url
+        else:
+            avatar_url = ''
+        return render (request, 'AppEntrega1/inicio.html', {'avatar_url': avatar_url})
+    return render (request, 'AppEntrega1/inicio.html')
 
 def sucursal(request):
     return render(request, 'AppEntrega1/sucursal.html', {'sucursales': Sucursal.objects.all()})
@@ -171,3 +180,16 @@ def enviar_email(request):
 def email_enviado(request):
     return render(request, "AppEntrega1/email_enviado.html")
 
+@login_required 
+def agregar_avatar(request):
+    if request.method == 'POST':
+        formulario = AvatarFormulario(request.POST, request.FILES)
+        
+        if formulario.is_valid():
+            avatar = Avatar(user=request.user, imagen=formulario.cleaned_data['imagen'])
+            avatar.save()
+            return redirect('inicio')
+    else:
+        formulario = AvatarFormulario()
+        
+    return render(request, 'AppEntrega1/crear_avatar.html', {'form': formulario})

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from AppEntrega1.views import email_enviado, enviar_email, inicio, busqueda_usuario, buscar, ayuda, contacto, SucursalListView, SucursalCreateView, SucursalDetailView, SucursalUpdateView, SucursalDeleteView, SeccionListView, SeccionCreateView, SeccionDetailView, SeccionUpdateView, SeccionDeleteView, LibroListView, LibroDetailView, LibroCreateView, LibroUpdateView, LibroDeleteView, UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
+from AppEntrega1.views import agregar_avatar, email_enviado, enviar_email, inicio, busqueda_usuario, buscar, ayuda, contacto, SucursalListView, SucursalCreateView, SucursalDetailView, SucursalUpdateView, SucursalDeleteView, SeccionListView, SeccionCreateView, SeccionDetailView, SeccionUpdateView, SeccionDeleteView, LibroListView, LibroDetailView, LibroCreateView, LibroUpdateView, LibroDeleteView, UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
 
 urlpatterns = [
     path('', inicio, name= 'inicio'),
@@ -30,4 +30,5 @@ urlpatterns = [
     path('contacto', contacto, name = 'contacto'),
     path('mensajeria', enviar_email, name = 'mensajeria'),
     path('mensajeria/enviado', email_enviado, name = 'enviado'),
+    path('user/avatar/add', agregar_avatar, name='avatar_add'),
 ]

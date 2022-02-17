@@ -13,8 +13,11 @@
             {{ form.as_table }}
         </table>
 
-        <input type="submit" value="Crear Usuario">
+        <input type="submit" value="Editar Usuario">
     </form>
-<a class="btn btn-primary" href="{% url 'inicio' %}">Cancelar</a>
+
+<a class="btn btn-primary" href="{% url 'avatar_add' %}">Agregar/Editar Avatar</a>
+<br></br>
+<a class="btn btn-primary" href="{% url 'inicio' %}">Regresar</a>
 </body>
 </html>
