@@ -1,0 +1,22 @@
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block titulo %}
+    Inicio
+{% endblock %}
+
+
+{% block respectivo1 %}
+
+    <h3>Resultados de sucursales similares a "{{ sucursal }}":</h3>
+    {% if sucursales %}
+
+    <ul>
+        {%for sucursal in sucursales%}
+        <li> {{ sucursal }} </li>
+        {% endfor%}
+    </ul>
+    
+    {% endif %}
+    <a class="btn btn-primary" href="{% url 'sucursales' %}"> Volver </a>
+
+{% endblock %}

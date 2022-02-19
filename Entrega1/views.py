@@ -17,7 +17,7 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('inicio')
+                return redirect('libros')
         
         else:
             return render(request, 'login.html', {'form': form})
@@ -58,3 +58,7 @@ def editar_perfil(request):
         formulario = UserEditForm({'email': usuario.email})
     
     return render(request, 'editar.html', {'form': formulario})
+
+
+def about(request):
+    return render(request, 'about.html')

@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Mensajeria</title>
-</head>
-<body>
+{% extends 'AppEntrega1/padre.html' %}
+
+{% block titulo %}
+    Mensaje
+{% endblock %}
+
+{% block respectivo1%}
     <form method="POST"> 
         {% csrf_token %}
         <label>Asunto</label>
         <input type="text" name="asunto"><br><br>
         <label>Correo</label>
-        <input type="text" name="correo"><br>
+        <input type="email" name="correo"><br>
         <label>Mensaje</label>
         <textarea name="mensaje" id="" cols="30" rows="10"></textarea><br><br>
 
-        <button type="submit"> Enviar </button>
+        <button class="btn btn-primary" type="submit"> Enviar </button>
     </form>
     <br>
-    <a class="btn btn-default" href="{% url 'inicio' %}"> Cancelar </a>
-</body>
-</html>
+    <a href="{% url 'inicio' %}"> Cancelar </a>
+{% endblock %}

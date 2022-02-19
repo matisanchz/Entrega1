@@ -1,23 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+{% extends 'AppEntrega1/padre.html' %}
 
-        <input type="submit" value="Editar Usuario">
-    </form>
+{% block titulo %}
+    Libros
+{% endblock %}
 
-<a class="btn btn-primary" href="{% url 'avatar_add' %}">Agregar/Editar Avatar</a>
-<br></br>
-<a class="btn btn-primary" href="{% url 'inicio' %}">Regresar</a>
-</body>
-</html>
+{% block respectivo1%}
+    <body>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+
+            <input type="submit" value="Editar Usuario">
+        </form>
+
+    <a class="btn btn-primary" href="{% url 'avatar_add' %}">Agregar/Editar Avatar</a>
+    <br></br>
+    <a class="btn btn-primary" href="{% url 'inicio' %}">Regresar</a>
+    </body>
+{% endblock %}

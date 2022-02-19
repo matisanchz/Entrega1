@@ -1,6 +1,6 @@
 from django.urls import path
 
-from AppEntrega1.views import agregar_avatar, email_enviado, enviar_email, inicio, busqueda_usuario, buscar, ayuda, contacto, SucursalListView, SucursalCreateView, SucursalDetailView, SucursalUpdateView, SucursalDeleteView, SeccionListView, SeccionCreateView, SeccionDetailView, SeccionUpdateView, SeccionDeleteView, LibroListView, LibroDetailView, LibroCreateView, LibroUpdateView, LibroDeleteView, UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView
+from AppEntrega1.views import agregar_avatar, buscar_libro, buscar_sucursal, busqueda_libro, busqueda_sucursal, email_enviado, enviar_email, inicio, busqueda_usuario, buscar, ayuda, contacto, SucursalListView, SucursalCreateView, SucursalDetailView, SucursalUpdateView, SucursalDeleteView, SeccionListView, SeccionCreateView, SeccionDetailView, SeccionUpdateView, SeccionDeleteView, LibroListView, LibroDetailView, LibroCreateView, LibroUpdateView, LibroDeleteView, UsuarioListView, UsuarioDetailView, UsuarioCreateView, UsuarioUpdateView, UsuarioDeleteView, mi_perfil
 
 urlpatterns = [
     path('', inicio, name= 'inicio'),
@@ -26,9 +26,14 @@ urlpatterns = [
     path('usuarios/delete/<pk>', UsuarioDeleteView.as_view(), name = 'usuario_delete'),
     path('busquedaUsuario', busqueda_usuario, name = 'busqueda_usuario'),
     path('buscar', buscar, name = 'buscar'),
+    path('busquedaLibro', busqueda_libro, name = 'busqueda_libro'),
+    path('buscar/libro', buscar_libro, name = 'buscar_libro'),
+    path('busquedaSucursal', busqueda_sucursal, name = 'busqueda_sucursal'),
+    path('buscar/sucursal', buscar_sucursal, name = 'buscar_sucursal'),
     path('ayuda', ayuda, name = 'ayuda'),
     path('contacto', contacto, name = 'contacto'),
     path('mensajeria', enviar_email, name = 'mensajeria'),
     path('mensajeria/enviado', email_enviado, name = 'enviado'),
     path('user/avatar/add', agregar_avatar, name='avatar_add'),
+    path('user/', mi_perfil, name='mi_perfil'),
 ]

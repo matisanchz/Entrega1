@@ -7,16 +7,16 @@
 
 {% block respectivo1 %}
 
-    Estoy buscando el usuario con id: {{ id_socio }}
-    {%if usuarios %}
+    Resultados de libros similares a "{{ libro }}":
+    {% if libros %}
 
     <ul>
-        {% for usuario in usuarios%}
-        <li> {{ usuario }} </li>
+        {%for libro in libros%}
+        <li> {{ libro }} </li>
         {% endfor%}
     </ul>
     
     {% endif %}
     <a class="btn btn-default" href="{% url 'libros' %}"> Volver </a>
 
-    {% endblock %}    
+{% endblock %}

@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         <title> 
             {% block titulo %}
+            About
             {% endblock %}
         </title>
         <!-- Favicon-->
@@ -23,48 +24,19 @@
         <link href="{% static 'AppEntrega1/css/styles.css' %}" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        
-                        {% if not user.is_authenticated %}
-                            
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    
-                                        <p><input type="text" name="usuario" class="form-control" placeholder="usuario"></p>
-                                    
-                                    
-                                        <p><input type="password" name="contrasenia" class="form-control" placeholder="contraseña"></p>
-                                   
-                                    <input type="submit" class="btn btn-primary" value="Iniciar Sesión">
-                                    <a href="{% url 'register' %}"> Registrarse </a>
-                                </form>
-                                
-                                
-                        {% else %}
-                            <a href="{% url 'mi_perfil' %}"><p class= "text-muted small mb-4 mb-lg-0"> Bienvenido: {{user.username}} </p></a>
-                            <a href="{% url 'mi_perfil' %}"><img src = "{{avatar_url}}" height="35px"/></a>
-                            
-                        {% endif %}
-                                
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
                {% block respectivo1 %}
-                    <div class="masthead-subheading">Te conectamos con tu libro!</div>
-                    <div class="masthead-heading text-uppercase">BookApp</div>
-                    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'libros' %}">Empezar</a>
-                    <br>
-                    <br>
-                    <a href="{% url 'about' %}"> About </a>
-
+               <li>
+                <img src="perfil1.jpg" class="img-thumbnail">    
+                    Hola! Soy Matias Martos, estudiante del curso de Python de Coderhouse, 
+                    y este es nuestro proyecto final. 
+                    <br> 
+                    Quisimos desarrollar un sitio web que le permita al usuario tener acceso a sus libros favoritos, 
+                    poder compartir los suyos y tener interacción con libros publicados por otros lectores.
+                </li>
                {% endblock %}
             </div>
         </header>

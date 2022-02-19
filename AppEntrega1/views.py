@@ -159,6 +159,26 @@ def buscar(request):
     
     return render(request, 'AppEntrega1/buscar.html', {'usuarios': usuarios, 'id_socio': id_socio})
 
+def busqueda_libro(request):
+    return render(request, 'AppEntrega1/busquedaLibro.html')
+
+def buscar_libro(request):
+    titulo = request.GET["titulo"]
+    
+    libros = Libro.objects.filter(titulo__icontains = titulo)
+    
+    return render(request, 'AppEntrega1/buscar_libro.html', {'libros': libros, 'libro': titulo})
+
+def busqueda_sucursal(request):
+    return render(request, 'AppEntrega1/busquedaSucursal.html')
+
+def buscar_sucursal(request):
+    nombre = request.GET["nombre"]
+    
+    sucursales = Sucursal.objects.filter(nombre__icontains = nombre)
+    
+    return render(request, 'AppEntrega1/buscar_sucursal.html', {'sucursales': sucursales, 'sucursal': nombre})
+
 def ayuda(request):
     return HttpResponse('Actualmente este servicio no está disponible; comunicarse con el desarrollador del servicio')
 
@@ -193,3 +213,8 @@ def agregar_avatar(request):
         formulario = AvatarFormulario()
         
     return render(request, 'AppEntrega1/crear_avatar.html', {'form': formulario})
+
+@login_required
+def mi_perfil(request):
+        
+    return render(request, 'AppEntrega1/mi_perfil.html')

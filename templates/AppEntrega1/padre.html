@@ -20,13 +20,12 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'AppEntrega1/css/styles.css' %}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -43,12 +42,14 @@
                         {% if not user.is_authenticated %}
                             <li class="nav-item"><a class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
                         {% else %}
-                            <p class= "text-muted small mb-4 mb-lg-0"> Bienvenido: {{user.username}} </p>
-                            <img src = "{{avatar_url}}" height="35px"/>
-                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></li>
-                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'user_editar' %}">Editar Usuario</a></li>
+                            <a href="{% url 'mi_perfil' %}"><p class= "text-muted small mb-4 mb-lg-0"> Bienvenido: {{user.username}} </p></a>
+                            <a href="{% url 'mi_perfil' %}"><img src = "{{avatar_url}}" height="35px"/></a>
+                            
                         {% endif %}
-                        <li class="nav-item"><a class="btn btn-primary" href="{% url 'busqueda_usuario' %}">Buscar ID Usuario</a></li>
+                        <form class="d-flex" action="{% url 'buscar' %}" method="GET">
+                            <input class="form-control me-2" type="number" placeholder="ID Usuario" aria-label="Search" name="id_socio">
+                            <button class="btn btn-primary" type="submit" href="{% url 'busqueda_usuario' %}">Buscar</button>
+                        </form>   
                     </ul>
                 </div>
             </div>
