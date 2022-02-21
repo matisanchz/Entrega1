@@ -7,15 +7,22 @@
 {% block respectivo1%}
     <form method="POST"> 
         {% csrf_token %}
-        <label>Asunto</label>
-        <input type="text" name="asunto"><br><br>
-        <label>Correo</label>
-        <input type="email" name="correo"><br>
-        <label>Mensaje</label>
-        <textarea name="mensaje" id="" cols="30" rows="10"></textarea><br><br>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Correo</label>
+            <input type="email" class="form-control" name="correo" placeholder="nombre@ejemplo.com">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Asunto</label>
+            <input type="text" class="form-control" name="asunto">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+            <textarea class="form-control" name="mensaje" rows="3"></textarea>
+        </div>
 
         <button class="btn btn-primary" type="submit"> Enviar </button>
     </form>
     <br>
-    <a href="{% url 'inicio' %}"> Cancelar </a>
+    <a href="{% url 'home' %}"> Cancelar </a>
 {% endblock %}

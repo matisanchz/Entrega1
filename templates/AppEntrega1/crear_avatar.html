@@ -1,19 +1,20 @@
 {% extends 'AppEntrega1/padre.html' %}
 
-{% block contenidoQueCambia %}
+{% block respectivo1 %}
 
 {% if form.errors %}
     <p style="color: red;"> {{form.errors}}</p> 
     {% endif %}
 
     <form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-        
-    <table>
-        {{ form.as_table }}
-    </table>
-        
-    <input type="submit" value="Enviar">
+        {% csrf_token %}
+            
+        <table>
+            {{ form.as_table }}
+        </table>
+            
+        <input type="submit" class="btn btn-primary" value="Enviar">
+        <a href="mi_perfil">Cancelar</a>
     </form>
 
 {% endblock %}

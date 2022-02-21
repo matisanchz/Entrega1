@@ -1,34 +1,25 @@
 from django.forms import model_to_dict
-
 from django.shortcuts import render, redirect
-
 from django.http import HttpResponse
-
 from AppEntrega1.forms import AvatarFormulario
-
+from Entrega1.forms import UserRegisterForm, UserEditForm
 from .models import Avatar, Sucursal, Seccion, Libro, Usuario
-
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
 from django.urls import reverse_lazy
-
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.contrib.auth.decorators import login_required
-
 from django.core.mail import send_mail
-
 from django.conf import settings
 
-def inicio(request):
+def home(request):
     if request.user.is_authenticated:
         avatares = Avatar.objects.filter(user=request.user)
         if avatares:
             avatar_url = avatares.last().imagen.url
         else:
             avatar_url = ''
-        return render (request, 'AppEntrega1/inicio.html', {'avatar_url': avatar_url})
-    return render (request, 'AppEntrega1/inicio.html')
+        return render (request, 'home.html', {'avatar_url': avatar_url})
+    return render (request, 'home.html')
 
 def sucursal(request):
     return render(request, 'AppEntrega1/sucursal.html', {'sucursales': Sucursal.objects.all()})
@@ -208,7 +199,7 @@ def agregar_avatar(request):
         if formulario.is_valid():
             avatar = Avatar(user=request.user, imagen=formulario.cleaned_data['imagen'])
             avatar.save()
-            return redirect('inicio')
+            return redirect('mi_perfil')
     else:
         formulario = AvatarFormulario()
         
@@ -216,5 +207,31 @@ def agregar_avatar(request):
 
 @login_required
 def mi_perfil(request):
-        
+    if request.user.is_authenticated:
+        avatares = Avatar.objects.filter(user=request.user)
+        if avatares:
+            avatar_url = avatares.last().imagen.url
+        else:
+            avatar_url = ''
+        return render (request, 'AppEntrega1/mi_perfil.html', {'avatar_url': avatar_url})
     return render(request, 'AppEntrega1/mi_perfil.html')
+
+@login_required
+def editar_perfil(request):
+    usuario = request.user
+    
+    if request.method == 'POST':
+        formulario = UserEditForm(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            usuario.email = data['email']
+            usuario.password1 = data['password1']
+            usuario.password2 = data['password2']
+            usuario.first_name = data['first_name']
+            usuario.last_name = data['last_name']
+            usuario.save()
+            return redirect('mi_perfil')
+    else:
+        formulario = UserEditForm({'email': usuario.email})
+    
+    return render(request, 'AppEntrega1/editar.html', {'form': formulario})

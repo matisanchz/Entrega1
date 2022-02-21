@@ -32,24 +32,27 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a>
                         <li class="nav-item"><a class="nav-link" href="{% url 'sucursales' %}">Sucursales</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'secciones' %}">Secciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'libros' %}">Libros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'usuarios' %}">Usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'mensajeria' %}">Mensajería</a></li>
 
-                        {% if not user.is_authenticated %}
-                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'login' %}">Login</a></li>
-                        {% else %}
-                            <a href="{% url 'mi_perfil' %}"><p class= "text-muted small mb-4 mb-lg-0"> Bienvenido: {{user.username}} </p></a>
-                            <a href="{% url 'mi_perfil' %}"><img src = "{{avatar_url}}" height="35px"/></a>
-                            
-                        {% endif %}
-                        <form class="d-flex" action="{% url 'buscar' %}" method="GET">
-                            <input class="form-control me-2" type="number" placeholder="ID Usuario" aria-label="Search" name="id_socio">
+                                                    
+                        
+                        <!-- Buscar usuario por ID -->
+                        <form class="input-group mb-3" action="{% url 'buscar' %}" method="GET">
+                            <input type="text" class="form-control" placeholder="ID Usuario" name="id_socio">
                             <button class="btn btn-primary" type="submit" href="{% url 'busqueda_usuario' %}">Buscar</button>
-                        </form>   
+                        </form>
+                        
+                        {% if not user.is_authenticated %}
+                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'home' %}">Login</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'mi_perfil' %}">@{{user.username}}</a></li>
+                            <img src="{{avatar_url}}" height="35px"/>
+                        {% endif %}  
                     </ul>
                 </div>
             </div>

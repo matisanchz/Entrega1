@@ -131,7 +131,7 @@ EMAIL_PORT=587
 EMAIL_HOST_USER="contactoalfaproject@gmail.com"
 EMAIL_HOST_PASSWORD="CoderHouse"
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'home'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

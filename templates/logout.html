@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %} 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="{% static 'AppEntrega1/css/styles.css' %}" rel="stylesheet" />
 </head>
 <body>
     
     <h3>Gracias por su visita.</h3>
-    <a href = "{% url 'login' %}">Loguearse de vuelta</a>
+    <a href = "{% url 'home' %}">Loguearse de vuelta</a>
     <br></br>
-    <a href="{% url 'inicio' %}"> Cancelar </a>
+    <a href="{% url 'home' %}"> Cancelar </a>
 </body>
 </html>

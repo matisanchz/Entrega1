@@ -12,11 +12,9 @@
                 {{ form.as_table }}
             </table>
 
-            <input type="submit" value="Editar Usuario">
+            <input type="submit" class="btn btn-primary" value="Editar Usuario">
         </form>
 
-    <a class="btn btn-primary" href="{% url 'avatar_add' %}">Agregar/Editar Avatar</a>
-    <br></br>
-    <a class="btn btn-primary" href="{% url 'inicio' %}">Regresar</a>
+    <a href="{% url 'user_editar' %}">Regresar</a>
     </body>
 {% endblock %}

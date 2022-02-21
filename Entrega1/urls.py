@@ -15,19 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Entrega1.views import login_request, register, editar_perfil, about 
+from Entrega1.views import login_request, register, about 
 from django.contrib.auth.views import LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    path('biblioteca/', include('AppEntrega1.urls')),
-    path('login/', login_request, name='login'),
+    path('BookApp/', include('AppEntrega1.urls')),
+    path('home/', login_request, name='home'),
     path('register/', register, name = 'register'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
-    path('user/edit', editar_perfil, name='user_editar'),
-    path('/about', about, name='about')
+    path('about', about, name='about')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
