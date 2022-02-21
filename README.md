@@ -1,43 +1,44 @@
-# Entrega1
-Entrega intermedia Proyecto Final
+# Python - Comisión 26350
+## Proyecto Final
+### Tutor: César Andrés Baby
 
-Matías Sánchez Abrego:
+1| Tareas:
 
-Se dió de alta el repositorio de la nube, y se lo instaló en el repositorio local, con git clone.
+    Matías Sánchez Abrego:
 
-Se creó el proyecto con django-admin startproject Entrega1.
+    Alta del repositorio de la nube, creación del proyecto "Entrega1", y la app "AppEntrega1".
 
-Se creó la app con python manage.py startapp AppEntrega1.
+    Definición de modelos, formularios, templates, views y CRUD, para cada modelo. Formulario de búsqueda por usuario.
 
-Se provó el correcto funcionamiento de la app con python manage.py runserver.
+    Login/Logout/Register forms. Creación y edición de avatares.
 
-Matías Martos:
+    Matías Martos:
 
-Creó los modelos, desde models.py, e importó la base de datos con python manage.py makemigrations; y python manage.py migrate.
 
-Matías Sánchez Abrego:
+    Consideraciones adicionales:
 
-Importó la carpeta static, usando de ejemplo lo visto en la clase.
+    Superuser:
 
-Se importó la carpeta padre.html, usada en clase.
+        Usuario: Biblioteca
 
-Creamos el archivo views.py, usando clases para crear formularios en cada modelo. 
+        Pass: Entrega1
 
-Separamos las URLS del proyecto, de las URLS de la AppEntrega1.
+    Mail para probar mensajería:
 
-Se fue probando uno por uno los formularios, desde runserver, creando los templates correspondientes, e importando las URLS.
+        Mail: contactoalfaproject@gmail.com
 
-Se dio de alta un superusuario en admin:
+        Pass : CoderHouse
 
-    Usuario: Biblioteca
+2| Funcionalidad de la aplicación:
 
-    Pass: Entrega1
+    Creamos una aplicación para una biblioteca. En ella se definieron 4 modelos:
 
-Se incorporó en el archivo admin.py, los modelos correspondientes, y se verificó el correcto funcionamiento de la Base de datos, viendo desde el panel /admin.
+        Sucursales
+        Secciones
+        Libros
+        Usuarios
+    
+    Los posibles clientes de la biblioteca, podrán observar la disponibilidad de libros, según sucursal y sección. Además, se agregó un botón de mensajería, donde podrán contactarse con los administradores de la página; y un botón de búsqueda de los socios dados de alta.
 
-Se incorporó un botón desde padre.html para poder buscar, usando un formulario, el ID de Usuarios creados.
-
-Incorporé paneles de ayuda y contacto. Se modificaron algunos templates, y se debugeo el código.
-
-Se volvió a debugear el código, por presentar errores. Se incorporaron elementos para cada modelo, tanto desde el panel de administración, como desde el panel de usuario.
+    Para aquellos usuarios registrados (staff), se les agregó la posibilidad de dar de alta, modificar o dar de baja las sucursales/secciones/libros disponibles.
 

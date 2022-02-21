@@ -170,11 +170,8 @@ def buscar_sucursal(request):
     
     return render(request, 'AppEntrega1/buscar_sucursal.html', {'sucursales': sucursales, 'sucursal': nombre})
 
-def ayuda(request):
-    return HttpResponse('Actualmente este servicio no está disponible; comunicarse con el desarrollador del servicio')
-
-def contacto(request):
-    return HttpResponse('Para contactos, enviar mail a contactoalfaproject@gmail.com')
+def pagina_construccion(request):
+    return render(request, "AppEntrega1/página_en_construcción.html")
 
 def enviar_email(request):
     
