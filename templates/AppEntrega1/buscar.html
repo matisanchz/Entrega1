@@ -7,7 +7,7 @@
 
 {% block respectivo1 %}
 
-    Estoy buscando el usuario con id: {{ id_socio }}
+    Estoy buscando el usuario con id '{{ id_socio }}'':
     {%if usuarios %}
 
     <ul>
@@ -17,6 +17,6 @@
     </ul>
     
     {% endif %}
-    <a class="btn btn-default" href="{% url 'usuarios' %}"> Volver </a>
+    <a href="{% url 'usuarios' %}"> Volver </a>
 
     {% endblock %}    

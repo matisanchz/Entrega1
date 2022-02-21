@@ -6,15 +6,26 @@
 
 {% block respectivo1%}
     <body>
-        <form action="" method="POST">
-            {% csrf_token %}
-            <table>
-                {{ form.as_table }}
-            </table>
+        <br>
+        <br>
+        <br>
+        <div class="position-relative">
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
 
-            <input type="submit" class="btn btn-primary" value="Editar Usuario">
-        </form>
+                    <input type="submit" class="btn btn-primary" value="Editar Usuario">
+                    <a href="{% url 'mi_perfil' %}">Regresar</a>
+                </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
 
-    <a href="{% url 'user_editar' %}">Regresar</a>
+    
     </body>
 {% endblock %}
